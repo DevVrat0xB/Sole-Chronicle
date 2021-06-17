@@ -2,18 +2,22 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: path.join(__dirname, "src", "index.js"),
+  mode: "development",
+  context: path.resolve(__dirname, "src"),
+  entry: "./index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    chunkFilename: "[id].js",
   },
   resolve: {
     modules: [path.join(__dirname, "src"), "node_modules"],
+    alias: {},
   },
   module: {
     rules: [
       {
-        test: /\.js(x)?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -38,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: "./public/index.html",
+      template: __dirname + "/public/index.html",
     }),
   ],
 };
