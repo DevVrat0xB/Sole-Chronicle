@@ -24,7 +24,7 @@ module.exports = {
         },
       },
       {
-        test: /.s?css$/,
+        test: /\.s?css$/,
         exclude: /node_modules/,
         use: [
           { loader: "style-loader" },
@@ -32,11 +32,12 @@ module.exports = {
             loader: "css-loader",
             options: { modules: true },
           },
-          {
-            loader: "sass-loader",
-            options: { modules: true },
-          },
         ],
+      },
+      {
+        test: /\.(ttf|svg)$/,
+        exclude: /node_modules/,
+        use: [{ loader: "url-loader" }],
       },
     ],
   },
