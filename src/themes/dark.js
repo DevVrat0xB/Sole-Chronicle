@@ -1,24 +1,25 @@
 import COLORS from "./colors";
+import Typography from "./typography";
 
 const Dark = {
   palette: {
     type: "dark",
     primary: {
-      main: COLORS.forestgreen,
+      main: COLORS.forestGreen,
     },
     secondary: {
-      main: COLORS.pinegreen,
+      main: COLORS.pineGreen,
     },
     text: {
       primary: COLORS.white,
-      secodary: COLORS.limegreen,
+      secodary: COLORS.limeGreen,
     },
     background: {
       default: COLORS.diesel,
       paper: COLORS.diesel,
     },
   },
-  typography: {},
+  typography: Typography,
 };
 
 export default Dark;

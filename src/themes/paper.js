@@ -1,24 +1,25 @@
 import COLORS from "./colors";
+import Typography from "./typography";
 
 const Paper = {
   palette: {
     type: "light",
     primary: {
-      main: COLORS.forestgreen,
+      main: COLORS.jadeGreen,
     },
     secondary: {
-      main: COLORS.pinegreen,
+      main: COLORS.pineGreen,
     },
     text: {
       primary: COLORS.diesel,
-      secodary: COLORS.limegreen,
+      secodary: COLORS.mediumVioletred,
     },
     background: {
       default: COLORS.white,
       paper: COLORS.white,
     },
   },
-  typography: {},
+  typography: Typography,
 };
 
 export default Paper;

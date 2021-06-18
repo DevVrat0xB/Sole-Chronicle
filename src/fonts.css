@@ -24,6 +24,16 @@
 }
 
 @font-face {
+  font-family: Palanquin-Regular;
+  src: url("./assets/fonts/Palanquin-Regular.ttf");
+}
+
+@font-face {
+  font-family: Palanquin-Light;
+  src: url("./assets/fonts/Palanquin-Light.ttf");
+}
+
+@font-face {
   font-family: Parisienne;
   src: url("./assets/fonts/Parisienne-Regular.ttf");
 }
