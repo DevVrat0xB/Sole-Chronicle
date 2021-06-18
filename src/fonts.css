@@ -1,0 +1,39 @@
+@font-face {
+  font-family: Allura;
+  src: url("./assets/fonts/Allura-Regular.ttf");
+}
+
+@font-face {
+  font-family: Cookie;
+  src: url("./assets/fonts/Cookie-Regular.ttf");
+}
+
+@font-face {
+  font-family: GrandHotel;
+  src: url("./assets/fonts/GrandHotel-Regular.ttf");
+}
+
+@font-face {
+  font-family: JosefinSans-Regular;
+  src: url("./assets/fonts/JosefinSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: Pacifico;
+  src: url("./assets/fonts/Pacifico-Regular.ttf");
+}
+
+@font-face {
+  font-family: Parisienne;
+  src: url("./assets/fonts/Parisienne-Regular.ttf");
+}
+
+@font-face {
+  font-family: Sacramento;
+  src: url("./assets/fonts/Sacramento-Regular.ttf");
+}
+
+@font-face {
+  font-family: Yesteryear;
+  src: url("./assets/fonts/Yesteryear-Regular.ttf");
+} ;
