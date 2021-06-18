@@ -1,4 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import CSSBaseline from "@material-ui/core/CssBaseline";
 import {
   createMuiTheme,
@@ -7,7 +9,7 @@ import {
 } from "@material-ui/core/styles";
 
 import THEMES from "./themes/all_themes.js";
-import HomePage from "./pages/home.jsx";
+import AppRoutes from "./routes/root.js";
 
 export const themeController = createContext();
 
@@ -37,7 +39,21 @@ const App = () => {
       <MuiThemeProvider theme={createMuiTheme(activeTheme)}>
         <CSSBaseline />
         <div className={style.gradientBackground}>
-          <HomePage />
+          <BrowserRouter>
+            <Switch>
+              {AppRoutes.map((route) => {
+                const { path, component, exact } = route;
+                return (
+                  <Route
+                    key={path}
+                    exact={exact}
+                    path={path}
+                    component={component}
+                  />
+                );
+              })}
+            </Switch>
+          </BrowserRouter>
         </div>
       </MuiThemeProvider>
     </themeController.Provider>
