@@ -1,6 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
+import TopNav from "./components/top_nav.jsx";
+import THEMES from "./themes/all_themes.js";
+import AppRoutes from "./routes/root.js";
+
 import CSSBaseline from "@material-ui/core/CssBaseline";
 import {
   createMuiTheme,
@@ -8,14 +12,11 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 
-import THEMES from "./themes/all_themes.js";
-import AppRoutes from "./routes/root.js";
-
 export const themeController = createContext();
 
 const useStyles = makeStyles((theme) => ({
   gradientBackground: {
-    height: "100vh",
+    minHeight: "100vh",
     width: "100%",
     background: `
       linear-gradient(
@@ -39,6 +40,7 @@ const App = () => {
       <MuiThemeProvider theme={createMuiTheme(activeTheme)}>
         <CSSBaseline />
         <div className={style.gradientBackground}>
+          <TopNav />
           <BrowserRouter>
             <Switch>
               {AppRoutes.map((route) => {
