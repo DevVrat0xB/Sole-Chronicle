@@ -7,30 +7,12 @@ import THEMES from "./themes/all_themes.js";
 import AppRoutes from "./routes/root.js";
 
 import CSSBaseline from "@material-ui/core/CssBaseline";
-import {
-  createMuiTheme,
-  MuiThemeProvider,
-  makeStyles,
-} from "@material-ui/core/styles";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
 export const themeController = createContext();
 export const menuController = createContext();
 
-const useStyles = makeStyles((theme) => ({
-  gradientBackground: {
-    minHeight: "100vh",
-    width: "100%",
-    background: `
-      linear-gradient(
-        180deg,
-        ${theme.palette.primary.main} 10%,
-        ${theme.palette.secondary.main} 100%
-      )`,
-  },
-}));
-
 const App = () => {
-  const style = useStyles();
   const [activeTheme, activateTheme] = useState(THEMES.paper);
   const [fadedIn, fadeInMenu] = useState(false);
 
@@ -42,27 +24,27 @@ const App = () => {
     <themeController.Provider value={{ activeTheme, activateTheme }}>
       <MuiThemeProvider theme={createMuiTheme(activeTheme)}>
         <CSSBaseline />
-        <div className={style.gradientBackground}>
-          <Menu fadeIn={fadedIn} />
-          <menuController.Provider value={fadeInMenu}>
-            <TopNav />
-          </menuController.Provider>
-          <BrowserRouter>
-            <Switch>
-              {AppRoutes.map((route) => {
-                const { path, component, exact } = route;
-                return (
-                  <Route
-                    key={path}
-                    exact={exact}
-                    path={path}
-                    component={component}
-                  />
-                );
-              })}
-            </Switch>
-          </BrowserRouter>
-        </div>
+        <Menu fadeIn={fadedIn} />
+        <menuController.Provider value={fadeInMenu}>
+          <TopNav />
+        </menuController.Provider>
+
+        {/* All pages will render here. */}
+        <BrowserRouter>
+          <Switch>
+            {AppRoutes.map((route) => {
+              const { path, component, exact } = route;
+              return (
+                <Route
+                  key={path}
+                  exact={exact}
+                  path={path}
+                  component={component}
+                />
+              );
+            })}
+          </Switch>
+        </BrowserRouter>
       </MuiThemeProvider>
     </themeController.Provider>
   );
